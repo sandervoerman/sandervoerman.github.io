@@ -5,7 +5,7 @@
 layout: home
 ---
 
-![me](assets/img/rp01.png){:style="width: 208px; float: left"}
+![me](assets/img/rp01.png)
 
 I am a philosopher and developer working in the fields of ethics, health, and
 information technology.
