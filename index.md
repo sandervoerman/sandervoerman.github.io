@@ -16,6 +16,5 @@ and as a consultant for responsible innovation.
 I have lectured at [University of Twente](http://utwente.nl),
 [Eindhoven University of Technology](http://www.tue.nl/) and
 [Tilburg University](http://www.tilburguniversity.edu/),
-and I have published on a wide range of philosophical topics, including
-free will, selfhood, morality, responsibility, consciousness,
-and the philosophy of health care and technology.
+and I have published on a wide range of philosophical topics, most of which have something to do with the
+problem of understanding human agency.
