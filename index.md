@@ -5,4 +5,17 @@
 layout: home
 ---
 
-![me](assets/img/rp01.png)
+![me](assets/img/rp01.png){:style="width: 208px; float: left"}
+
+I am a philosopher and developer working in the fields of ethics, health, and
+information technology.
+I work as a researcher within the
+[Redesigning Psychiatry](http://www.redesigningpsychiatry.org/) project,
+and as a consultant for responsible innovation.
+
+I have lectured at [University of Twente](http://utwente.nl),
+[Eindhoven University of Technology](http://www.tue.nl/) and
+[Tilburg University](http://www.tilburguniversity.edu/),
+and I have published on a wide range of philosophical topics, including
+free will, selfhood, morality, responsibility, consciousness,
+and the philosophy of health care and technology.
