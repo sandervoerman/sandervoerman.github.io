@@ -14,15 +14,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Sander Voerman
-author: Contact  # cheap hack
-email: sander@savoerman.nl
+email: sander@redesigningpsychiatry.org
 # description: >- # this means to ignore newlines until "baseurl:"
   Philosophy of health and agency
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sandervoerman.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  sandervoerman
-linkedin_username: sander@savoerman.nl
+linkedin_username: sander-voerman-71715517
 # Build settings
 markdown: kramdown
 theme: minima
