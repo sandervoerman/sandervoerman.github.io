@@ -32,7 +32,8 @@ Amsterdam: Redesigning Psychiatry, 2016.
 ### Practical Judgment as Volitional Interpretation
 
 [![The Normative Will](assets/img/nwcover.png){:style="width: 100px"}][nw]
-PhD thesis (English, 354 pages). Tilburg: Tilburg University, 2012.
+
+PhD thesis (354 pages). Tilburg: Tilburg University, 2012.
 
 
 ## Vrije wil
