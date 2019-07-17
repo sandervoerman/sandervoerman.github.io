@@ -5,10 +5,9 @@ permalink: /books/
 books:
   -
     title:
-      en: 'Redesigning Psychiatry #2'
-    subtitle:
-      nl: 'Samen innoveren voor het welzijn van toekomstige generaties'
-      en: 'Collaborative innovation for the well-being of future generations'
+      - en: 'Redesigning Psychiatry #2'
+      - nl: 'Samen innoveren voor het welzijn van toekomstige generaties'
+        en: 'Collaborative innovation for the well-being of future generations'
     about: >-
       Report (Dutch, 102 pages).
       With Femke de Boer et al.
@@ -17,10 +16,9 @@ books:
     link: assets/pdf/rp2.pdf
   -
     title:
-      en: 'Redesigning Psychiatry #1'
-    subtitle:
-      nl: 'Innoveren voor psychisch welzijn in de 21e eeuw'
-      en: 'Innovating for mental well-being in the 21st century'
+      - en: 'Redesigning Psychiatry #1'
+      - nl: 'Innoveren voor psychisch welzijn in de 21e eeuw'
+        en: 'Innovating for mental well-being in the 21st century'
     about: >-
       Report (Dutch, 76 pages).
       With Femke de Boer et al.
@@ -29,9 +27,8 @@ books:
     link: assets/pdf/rp1.pdf
   -
     title:
-      en: 'The Normative Will'
-    subtitle:
-      en: 'Practical Judgment as Volitional Interpretation'
+      - en: 'The Normative Will'
+      - en: 'Practical Judgment as Volitional Interpretation'
     about: >-
       PhD thesis (354 pages).
       Tilburg: Tilburg University, 2012.
@@ -39,11 +36,10 @@ books:
     link: assets/pdf/tnw.pdf
   -
     title:
-      nl: 'Vrije wil'
-      en: 'Free will'
-    subtitle:
-      nl: 'Discussies over verantwoordelijkheid, zelfverwerkelijking en bewustzijn'
-      en: 'Discussions on responsibility, self-realization and consciousness'
+      - nl: 'Vrije wil'
+        en: 'Free will'
+      - nl: 'Discussies over verantwoordelijkheid, zelfverwerkelijking en bewustzijn'
+        en: 'Discussions on responsibility, self-realization and consciousness'
     about: >-
       Textbook (Dutch, 216 pages).
       With Tjeerd van de Laar.
@@ -52,40 +48,19 @@ books:
     link: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
 ---
 
+{% for book in page.books %}
+  {% capture title %}{{ book.title.first.nl | default: book.title.first.en }}{% endcapture %}
+  {% capture subtitle %}{{ book.title.last.nl | default: book.title.last.en }}{% endcapture %}
 
-[![Redesigning Psychiatry #2](assets/img/rpcover02.png){:style="width: 100px"}][rp2]
+  [![{{ title }}](assets/img/{{ book.image }}){:style="width: 100px"}]({{ book.link }})
 
-[Redesigning Psychiatry #2:][rp2]
-[Samen innoveren voor het welzijn van toekomstige generaties][rp2]{:lang="nl"}
-(Collaborative innovation for the well-being of future generations).
-Report (Dutch, 102 pages).
-With Femke de Boer et al.
-Amsterdam: Redesigning Psychiatry, 2018.
+  [{{ title }}:]({{ book.link }}){% if book.title.first.nl %}{:lang="nl"}{% endif %}
+  [{{ subtitle }}]({{ book.link }}){% if book.title.last.nl %}{:lang="nl"}{% endif %}
 
+  {% if book.title.last.nl %}
+    ({% if book.title.first.nl %}{{ book.title.first.en }}. {% endif %}{{ book.title.last.en }}).
+  {% endif %}
 
-[![Redesigning Psychiatry #1](assets/img/rpcover01.png){:style="width: 100px"}][rp1]
+  {{ book.about }}
 
-[Redesigning Psychiatry #1:][rp1]
-[Innoveren voor psychisch welzijn in de 21e eeuw][rp1]{:lang="nl"}
-(Innovating for mental well-being in the 21st century).
-Report (Dutch, 76 pages).
-With Femke de Boer et al.
-Amsterdam: Redesigning Psychiatry, 2016.
-
-
-[![The Normative Will](assets/img/nwcover.png){:style="width: 100px"}][nw]
-
-[The Normative Will: Practical Judgment as Volitional Interpretation][nw].
-PhD thesis (354 pages). Tilburg: Tilburg University, 2012.
-
-
-[![Vrije wil](assets/img/vwcover.png){:style="width: 100px"}][vw]
-
-[Vrije wil: Discussies over verantwoordelijkheid, zelfverwerkelijking en bewustzijn][vw]{:lang="nl"}
-(Free will. Discussions on responsibility, self-realization and consciousness).
-Textbook (Dutch, 216 pages). With Tjeerd van de Laar. Rotterdam: Lemniscaat, 2011.
-
-[rp2]: assets/pdf/rp2.pdf
-[rp1]: assets/pdf/rp1.pdf
-[nw]: assets/pdf/tnw.pdf
-[vw]: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
+{% endfor %}
