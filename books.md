@@ -2,6 +2,33 @@
 layout: page
 title: Books
 permalink: /books/
+books:
+  -
+    title:
+      en: 'Redesigning Psychiatry #2'
+    subtitle:
+      nl: 'Samen innoveren voor het welzijn van toekomstige generaties'
+      en: 'Collaborative innovation for the well-being of future generations'
+    about: >-
+      Report (Dutch, 102 pages).
+      With Femke de Boer et al.
+      Amsterdam: Redesigning Psychiatry, 2018.    
+    image: rpcover02.png
+    link: assets/pdf/rp2.pdf
+  -
+    title:
+      en: 'Redesigning Psychiatry #1'
+    subtitle:
+      nl: 'Innoveren voor psychisch welzijn in de 21e eeuw'
+      en: 'Innovating for mental well-being in the 21st century'
+    about: >-
+      Report (Dutch, 76 pages).
+      With Femke de Boer et al.
+      Amsterdam: Redesigning Psychiatry, 2016.
+    image: rpcover01.png
+    link: assets/pdf/rp1.pdf
+
+
 ---
 
 
