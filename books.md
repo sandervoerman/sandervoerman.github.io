@@ -44,7 +44,7 @@ books:
       Textbook (Dutch, 216 pages).
       With Tjeerd van de Laar.
       Rotterdam: Lemniscaat, 2011.
-    image: rpcover01.png
+    image: vwcover.png
     link: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
 ---
 
