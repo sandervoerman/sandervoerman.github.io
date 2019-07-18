@@ -23,6 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 show_excerpts: false # set to true to show excerpts on the homepage
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sandervoerman.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+pgp_url: "https://keys.openpgp.org/vks/v1/by-fingerprint/EFF91367605E96F359945B19C89B31333E57B85F"
+kvk: 67189008
 
 # Minima 3.x
 minima:
