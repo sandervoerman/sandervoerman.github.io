@@ -60,24 +60,22 @@ books:
   {%- if book.title.first.nl -%}
     {%- assign alt = book.title.first.nl -%}
     {%- capture title %}<span lang="nl">{{ book.title.first.nl }}: {{ book.title.last.nl }}</span>{% endcapture -%}
-    {%- capture translation %}({{ book.title.first.en }}: {{ book.title.last.en }}). {% endcapture -%}
+    {%- capture translation %} ({{ book.title.first.en }}: {{ book.title.last.en }}).{% endcapture -%}
 
   {%- elsif book.title.last.nl -%}
     {%- assign alt = book.title.first.en -%}
     {%- capture title %}{{ book.title.first.en }}: <span lang="nl">{{ book.title.last.nl }}</span>{% endcapture -%}
-    {%- capture translation %}({{ book.title.last.en }}). {% endcapture -%}
+    {%- capture translation %} ({{ book.title.last.en }}).{% endcapture -%}
 
   {%- else -%}
     {%- assign alt = book.title.first.en -%}
     {%- capture title %}{{ book.title.first.en }}: {{ book.title.last.en }}{% endcapture -%}
-    {%- assign translation = '' -%}
+    {%- assign translation = '.' -%}
 
   {%- endif -%}
 
 [![{{ alt }}]({{ image }}){:style="width: 100px"}]({{ link }})
 
-[{{ title }}]({{ link }})
-
-{{ translation }}{{ book.about }}
+[{{ title }}]({{ link }}){{ translation }} {{ book.about }}
 
 {% endfor %}
