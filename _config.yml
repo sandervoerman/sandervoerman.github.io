@@ -24,9 +24,10 @@ github_username:  sandervoerman
 linkedin_username: sander-voerman-71715517
 # Build settings
 markdown: kramdown
-remote_theme: jekyll/minima
+remote_theme: sandervoerman/minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
