@@ -48,7 +48,7 @@ books:
     link: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
 ---
 
-{% for book in page.books %-}
+{% for book in page.books -%}
   {%- capture image -%}/assets/img/{{ book.image }}{% endcapture -%}
 
   {%- if book.pdf -%}
@@ -74,8 +74,9 @@ books:
 
   {%- endif -%}
 
+  <div class="book" markdown="block">
   [![{{ alt }}]({{ image }}){:style="width: 100px"}]({{ link }})
 
   [{{ title }}]({{ link }}){{ translation }} {{ book.about }}
-
-{-% endfor %}
+  </div>
+{%- endfor %}
