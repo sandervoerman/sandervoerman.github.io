@@ -19,9 +19,14 @@ description: >- # this means to ignore newlines until "baseurl:"
   Philosophy of health and agency
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sandervoerman.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jekyllrb
-github_username:  sandervoerman
-linkedin_username: sander-voerman-71715517
+
+# Minima 3.x
+minima:
+  social_links:
+    github: sandervoerman
+    linkedin: sander-voerman-71715517
+    rss: rss
+
 # Build settings
 markdown: kramdown
 remote_theme: sandervoerman/minima
