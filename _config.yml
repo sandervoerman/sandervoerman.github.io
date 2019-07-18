@@ -14,14 +14,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Sander Voerman
+author: GitHub User
 email: sander@savoerman.nl
 description: >- # this means to ignore newlines until "baseurl:"
-  Philosophy of health and agency
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+show_excerpts: false # set to true to show excerpts on the homepage
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sandervoerman.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Minima 3.x
 minima:
+  date_format: "%b %-d, %Y"
+
   social_links:
     github: sandervoerman
     linkedin: sander-voerman-71715517
