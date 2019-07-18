@@ -13,7 +13,7 @@ books:
       With Femke de Boer et al.
       Amsterdam: Redesigning Psychiatry, 2018.    
     image: rpcover02.png
-    link: /assets/pdf/rp2.pdf
+    pdf: rp2.pdf
   -
     title:
       - en: 'Redesigning Psychiatry #1'
@@ -24,7 +24,7 @@ books:
       With Femke de Boer et al.
       Amsterdam: Redesigning Psychiatry, 2016.
     image: rpcover01.png
-    link: /assets/pdf/rp1.pdf
+    pdf: rp1.pdf
   -
     title:
       - en: 'The Normative Will'
@@ -33,7 +33,7 @@ books:
       PhD thesis (354 pages).
       Tilburg: Tilburg University, 2012.
     image: nwcover.png
-    link: /assets/pdf/tnw.pdf
+    pdf: tnw.pdf
   -
     title:
       - nl: 'Vrije wil'
@@ -49,15 +49,35 @@ books:
 ---
 
 {% for book in page.books %}
+  {%- capture image -%}/assets/img/{{- book.image -}}{%- endcapture -%}
 
-  [![{{- book.title.first.nl | default: book.title.first.en -}}](/assets/img/{{- book.image -}}){:style="width: 100px"}]({{- book.link -}})
-
-  [{{- book.title.first.nl | default: book.title.first.en -}}:]({{- book.link -}}){%- if book.title.first.nl -%}{:lang="nl"}{%- endif -%}
-  [{{- book.title.last.nl | default: book.title.last.en -}}]({{- book.link -}}){%- if book.title.last.nl -%}{:lang="nl"}{%- endif -%}
-  {%- if book.title.last.nl -%}
-    ({%- if book.title.first.nl -%}{{- book.title.first.en -}}. {%- endif -%}{{- book.title.last.en -}}).
+  {%- if book.pdf -%}
+    {%- capture link -%}/assets/pdf/{{- book.pdf -}}{%- endcapture -%}
+  {%- else -%}
+    {%- assign link = book.link -%}
   {%- endif -%}
 
-  {{ book.about }}
+  {%- if book.title.first.nl -%}
+    {%- assign alt = book.title.first.nl -%}
+    {%- capture title %}{{ book.title.first.nl }}: {{ book.title.last.nl }}{:lang="nl"}{% endcapture -%}
+    {%- capture translation %}({{ book.title.first.en }}: {{ book.title.last.en }}). {% endcapture -%}
+
+  {%- elsif book.title.last.nl -%}
+    {%- assign alt = book.title.first.en -%}
+    {%- capture title %}{{ book.title.first.en }}: {::}{{ book.title.last.nl }}{:lang="nl"}{% endcapture -%}
+    {%- capture translation %}({{ book.title.last.en }}). {% endcapture -%}
+
+  {%- else -%}
+    {%- assign alt = book.title.first.en -%}
+    {%- capture title -%}{{- book.title.first.en -}}: {{- book.title.last.en -}}{%- endcapture -%}
+    {%- assign translation = '' -%}
+
+  {%- endif -%}
+
+[![{{ alt }}]({{ image }}){:style="width: 100px"}]({{ link }})
+
+[{{ title }}]({{ link }})
+
+{{ translation }}{{ book.about }}
 
 {% endfor %}
