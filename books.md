@@ -49,18 +49,16 @@ books:
 ---
 
 {% for book in page.books %}
-  {% capture title %}{{ book.title.first.nl | default: book.title.first.en }}{% endcapture %}
-  {% capture subtitle %}{{ book.title.last.nl | default: book.title.last.en }}{% endcapture %}
+  {%- capture title -%}{{- book.title.first.nl | default: book.title.first.en -}}{%- endcapture -%}
+  {%- capture subtitle -%}{{- book.title.last.nl | default: book.title.last.en -}}{%- endcapture -%}
 
-  [![{{ title }}](assets/img/{{ book.image }}){:style="width: 100px"}]({{ book.link }})
+  [![{{- title -}}](assets/img/{{- book.image -}}){:style="width: 100px"}]({{- book.link -}})
 
-  [{{ title }}:]({{ book.link }}){% if book.title.first.nl %}{:lang="nl"}{% endif %}
-  [{{ subtitle }}]({{ book.link }}){% if book.title.last.nl %}{:lang="nl"}{% endif %}
-
-  {% if book.title.last.nl %}
-    ({% if book.title.first.nl %}{{ book.title.first.en }}. {% endif %}{{ book.title.last.en }}).
-  {% endif %}
+  [{{- title -}}:]({{- book.link -}}){%- if book.title.first.nl -%}{:lang="nl"}{%- endif -%}
+  [{{- subtitle -}}]({{- book.link -}}){%- if book.title.last.nl -%}{:lang="nl"}{%- endif -%}
+  {%- if book.title.last.nl -%}
+    ({%- if book.title.first.nl -%}{{- book.title.first.en -}}. {%- endif -%}{{- book.title.last.en -}}).
+  {%- endif -%}
 
   {{ book.about }}
-
 {% endfor %}
