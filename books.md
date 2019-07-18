@@ -49,16 +49,15 @@ books:
 ---
 
 {% for book in page.books %}
-  {%- capture title -%}{{- book.title.first.nl | default: book.title.first.en -}}{%- endcapture -%}
-  {%- capture subtitle -%}{{- book.title.last.nl | default: book.title.last.en -}}{%- endcapture -%}
 
-  [![{{- title -}}](/assets/img/{{- book.image -}}){:style="width: 100px"}]({{- book.link -}})
+  [![{{- book.title.first.nl | default: book.title.first.en -}}](/assets/img/{{- book.image -}}){:style="width: 100px"}]({{- book.link -}})
 
-  [{{- title -}}:]({{- book.link -}}){%- if book.title.first.nl -%}{:lang="nl"}{%- endif -%}
-  [{{- subtitle -}}]({{- book.link -}}){%- if book.title.last.nl -%}{:lang="nl"}{%- endif -%}
+  [{{- book.title.first.nl | default: book.title.first.en -}}:]({{- book.link -}}){%- if book.title.first.nl -%}{:lang="nl"}{%- endif -%}
+  [{{- book.title.last.nl | default: book.title.last.en -}}]({{- book.link -}}){%- if book.title.last.nl -%}{:lang="nl"}{%- endif -%}
   {%- if book.title.last.nl -%}
     ({%- if book.title.first.nl -%}{{- book.title.first.en -}}. {%- endif -%}{{- book.title.last.en -}}).
   {%- endif -%}
 
   {{ book.about }}
+
 {% endfor %}
