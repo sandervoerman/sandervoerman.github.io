@@ -59,12 +59,12 @@ books:
 
   {%- if book.title.first.nl -%}
     {%- assign alt = book.title.first.nl -%}
-    {%- capture title %}{{ book.title.first.nl }}: {{ book.title.last.nl }}{:lang="nl"}{% endcapture -%}
+    {%- capture title %}<span lang="nl">{{ book.title.first.nl }}: {{ book.title.last.nl }}</span>{% endcapture -%}
     {%- capture translation %}({{ book.title.first.en }}: {{ book.title.last.en }}). {% endcapture -%}
 
   {%- elsif book.title.last.nl -%}
     {%- assign alt = book.title.first.en -%}
-    {%- capture title %}{{ book.title.first.en }}: {::}{{ book.title.last.nl }}{:lang="nl"}{% endcapture -%}
+    {%- capture title %}{{ book.title.first.en }}: <span lang="nl">{{ book.title.last.nl }}</span>{% endcapture -%}
     {%- capture translation %}({{ book.title.last.en }}). {% endcapture -%}
 
   {%- else -%}
