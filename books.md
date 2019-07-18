@@ -48,12 +48,11 @@ books:
     link: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
 ---
 
-<div class="books" markdown="block">
-{%- for book in page.books %-}
-  {%- capture image -%}/assets/img/{{- book.image -}}{%- endcapture -%}
+{% for book in page.books %-}
+  {%- capture image -%}/assets/img/{{ book.image }}{% endcapture -%}
 
   {%- if book.pdf -%}
-    {%- capture link -%}/assets/pdf/{{- book.pdf -}}{%- endcapture -%}
+    {%- capture link %}/assets/pdf/{{ book.pdf }}{% endcapture -%}
   {%- else -%}
     {%- assign link = book.link -%}
   {%- endif -%}
@@ -80,5 +79,4 @@ books:
 
   [{{ title }}]({{ link }}){{ translation }} {{ book.about }}
   </div>
-{-% endfor %-}
-</div>
+{-% endfor %}
