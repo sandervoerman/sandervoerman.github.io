@@ -69,7 +69,7 @@ books:
 
   {%- else -%}
     {%- assign alt = book.title.first.en -%}
-    {%- capture title -%}{{- book.title.first.en -}}: {{- book.title.last.en -}}{%- endcapture -%}
+    {%- capture title %}{{ book.title.first.en }}: {{ book.title.last.en }}{% endcapture -%}
     {%- assign translation = '' -%}
 
   {%- endif -%}
