@@ -24,7 +24,7 @@ github_username:  sandervoerman
 linkedin_username: sander-voerman-71715517
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
 
