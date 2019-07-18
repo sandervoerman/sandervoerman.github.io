@@ -74,9 +74,8 @@ books:
 
   {%- endif -%}
 
-  <div class="book" markdown="block">
   [![{{ alt }}]({{ image }}){:style="width: 100px"}]({{ link }})
 
   [{{ title }}]({{ link }}){{ translation }} {{ book.about }}
-  </div>
+
 {-% endfor %}
