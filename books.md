@@ -13,7 +13,7 @@ books:
       With Femke de Boer et al.
       Amsterdam: Redesigning Psychiatry, 2018.    
     image: rpcover02.png
-    link: assets/pdf/rp2.pdf
+    link: /assets/pdf/rp2.pdf
   -
     title:
       - en: 'Redesigning Psychiatry #1'
@@ -24,7 +24,7 @@ books:
       With Femke de Boer et al.
       Amsterdam: Redesigning Psychiatry, 2016.
     image: rpcover01.png
-    link: assets/pdf/rp1.pdf
+    link: /assets/pdf/rp1.pdf
   -
     title:
       - en: 'The Normative Will'
@@ -33,7 +33,7 @@ books:
       PhD thesis (354 pages).
       Tilburg: Tilburg University, 2012.
     image: nwcover.png
-    link: assets/pdf/tnw.pdf
+    link: /assets/pdf/tnw.pdf
   -
     title:
       - nl: 'Vrije wil'
@@ -52,7 +52,7 @@ books:
   {%- capture title -%}{{- book.title.first.nl | default: book.title.first.en -}}{%- endcapture -%}
   {%- capture subtitle -%}{{- book.title.last.nl | default: book.title.last.en -}}{%- endcapture -%}
 
-  [![{{- title -}}](assets/img/{{- book.image -}}){:style="width: 100px"}]({{- book.link -}})
+  [![{{- title -}}](/assets/img/{{- book.image -}}){:style="width: 100px"}]({{- book.link -}})
 
   [{{- title -}}:]({{- book.link -}}){%- if book.title.first.nl -%}{:lang="nl"}{%- endif -%}
   [{{- subtitle -}}]({{- book.link -}}){%- if book.title.last.nl -%}{:lang="nl"}{%- endif -%}
