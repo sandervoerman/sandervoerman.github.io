@@ -5,38 +5,31 @@ permalink: /books/
 books:
   -
     title:
-      - en: 'Redesigning Psychiatry'
-      - nl: 'Deel 2: Samen innoveren voor het welzijn van toekomstige generaties'
-        en: 'Volume 2: Collaborative innovation for the well-being of future generations'
-    vol: '#2'
-    year: 2018
+      - en: 'Redesigning Psychiatry, vol. 2'
+      - nl: 'Samen innoveren voor het welzijn van toekomstige generaties'
+        en: 'Collaborative innovation for the well-being of future generations'
     about: >-
-      Report (Dutch, 102 pages).
       With Femke de Boer et al.
-      Amsterdam: Redesigning Psychiatry.
+      Amsterdam: Redesigning Psychiatry, 2018.
     image: rpcover02.png
     pdf: rp2.pdf
   -
     title:
-      - en: 'Redesigning Psychiatry'
-      - nl: 'Deel 1: Innoveren voor psychisch welzijn in de 21e eeuw'
-        en: 'Volume 1: Innovating for mental well-being in the 21st century'
-    vol: '#1'
-    year: 2016
+      - en: 'Redesigning Psychiatry, vol. 1'
+      - nl: 'Innoveren voor psychisch welzijn in de 21e eeuw'
+        en: 'Innovating for mental well-being in the 21st century'
     about: >-
-      Report (Dutch, 76 pages).
       With Femke de Boer et al.
-      Amsterdam: Redesigning Psychiatry.
+      Amsterdam: Redesigning Psychiatry, 2016.
     image: rpcover01.png
     pdf: rp1.pdf
   -
     title:
       - en: 'The Normative Will'
       - en: 'Practical Judgment as Volitional Interpretation'
-    year: 2012
     about: >-
-      PhD thesis (354 pages).
-      Tilburg: Tilburg University.
+      PhD thesis.
+      Tilburg: Tilburg University, 2012.
     image: nwcover.png
     pdf: tnw.pdf
   -
@@ -45,11 +38,9 @@ books:
         en: 'Free will'
       - nl: 'Discussies over verantwoordelijkheid, zelfverwerkelijking en bewustzijn'
         en: 'Discussions on responsibility, self-realization and consciousness'
-    year: 2011
     about: >-
-      Textbook (Dutch, 216 pages).
       With Tjeerd van de Laar.
-      Rotterdam: Lemniscaat.
+      Rotterdam: Lemniscaat, 2011.
     image: vwcover.png
     link: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
 ---
@@ -57,58 +48,52 @@ books:
 {% for book in page.books -%}
   {%- capture image -%}/assets/img/{{ book.image }}{% endcapture -%}
 
-  {%- if book.pdf -%}
-    {%- capture link %}/assets/pdf/{{ book.pdf }}{% endcapture -%}
-  {%- else -%}
-    {%- assign link = book.link -%}
-  {%- endif -%}
-
-  {%- if book.vol -%}
-    {%- capture year -%}
-      {{- book.vol }}, {{ book.year -}}
-    {%- endcapture -%}
-  {%- else -%}
-    {%- assign year = book.year -%}
-  {%- endif -%}
-
   {%- if book.title.first.nl -%}
     {%- assign alt = book.title.first.nl -%}
-    {%- capture heading -%}
-      <h2 lang="nl">{{ alt }} ({{ year }})</h2>
+    {%- capture title -%}
+      <h2 lang="nl">{{ alt }}</h2>
     {%- endcapture -%}
     {%- capture translation -%}
-      ({{ book.title.first.en }}: {{ book.title.last.en }}).
-    {% endcapture -%}
+      {{- book.title.first.en }}: {{ book.title.last.en -}}
+    {%- endcapture -%}
 
   {%- else -%}
     {%- assign alt = book.title.first.en -%}
-    {%- capture heading -%}
-      <h2>{{ alt }} ({{ year }})</h2>
+    {%- capture title -%}
+      <h2>{{ alt }}</h2>
     {%- endcapture -%}
     {%- if book.title.last.nl -%}
-      {%- capture translation -%}
-        ({{ book.title.last.en }}).
-      {% endcapture -%}
-    {%- else -%}
-      {%- assign translation = '' -%}
+      {%- assign translation = book.title.last.en -%}
     {%- endif -%}
 
   {%- endif -%}
 
-  {%- if book.title.last.nl -%}
-    {%- capture subtitle -%}
-      <span lang="nl">{{ book.title.last.nl }}</span>
-    {% endcapture -%}
+  {%- if book.pdf -%}
+    {%- capture link %}/assets/pdf/{{ book.pdf }}{% endcapture -%}
+    {%- capture icon %}<i class="far fa-file-pdf"></i>{% endcapture -%}
+    {%- assign info = 'Download' -%}
   {%- else -%}
-    {%- assign subtitle = book.title.last.en -%}
+    {%- assign link = book.link -%}
+    {%- capture icon %}<i class="fas fa-external-link-alt"></i>{% endcapture -%}
+    {%- assign info = 'Read more about' -%}
   {%- endif -%}
 
-  <a class="book" href="{{ link }}">
+  {%- if book.title.last.nl -%}
+    {%- capture subtitle -%}
+      <span lang="nl">{{ book.title.last.nl }}</span> ({{ translation }})
+    {%- endcapture -%}
+  {%- else -%}
+    {%- capture subtitle -%}
+      {{ book.title.last.en }}
+    {%- endcapture -%}
+  {%- endif -%}
+
+  <a class="book" href="{{ link }}" title="{{ info }} {{ alt }}">
     <img src="{{ image }}" alt="{{ alt }}" />
     <div class="reference">
-      {{ heading }}
-      <p>{{ subtitle }}</p>
-      <p>{{ translation }}{{ book.about }}</p>
+      {{ title }}
+      <p>{{ subtitle }}. {{ book.about }}
+        <span class="booklink">{{ icon }}</span></p>
     </div>
   </a>
 {%- endfor %}

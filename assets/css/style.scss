@@ -4,13 +4,11 @@
 
 @import "minima";
 
-.book:link, .book:visited, .book:hover, .book:active {
+.book {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-items: flex-start;
   margin: 20px -20px;
-  color: black;
-  text-decoration: none;
 
   div, img {
     margin: 0 20px 20px;
@@ -18,10 +16,48 @@
 
   img {
     width: 150px;
+
+    /* source: https://codepen.io/sdthornton/pen/wBZdXq */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
 
   .reference {
-    flex-basis: 70%;
-    flex-grow: 1;
+    flex: 1 1 70%;
+
+    h2 {
+      font-size: 26px;
+    }
+
+    .booklink {
+      margin-left: 6px;
+      color: #828282;
+
+      i {
+        vertical-align: sub;
+      }
+
+      .fa-file-pdf {
+        font-size: 120%;
+      }
+
+    }
+  }
+}
+
+.book:link, .book:visited, .book:hover, .book:active {
+  color: black;
+  text-decoration: none;
+}
+
+.book:hover, .book:active {
+  img {
+
+    /* source: https://codepen.io/sdthornton/pen/wBZdXq */
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  h2 {
+    text-decoration: underline;
   }
 }
