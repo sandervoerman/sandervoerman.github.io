@@ -1,14 +1,49 @@
 ---
-# TODO: Add styles for the book layout below
+# Custom styles
 ---
 
 @import "minima";
+
+/* Home page */
+
+.home {
+  h1 {
+    color: #484848;
+  }
+}
+
+@media (min-width: 600px) {
+  .home {
+    h1 {
+      box-sizing: border-box;
+      background-image: url("/assets/img/rp01.png");
+      background-repeat: no-repeat;
+      background-position: right top;
+      padding-top: 60px;
+      padding-right: 350px;
+      height: 330px;
+    }
+
+    p {
+      max-width: 700px;
+    }
+  }
+}
+
+
+
+/* Books page */
 
 .book {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
   margin: 20px -20px;
+
+  &:link, &:visited, &:hover, &:active {
+    color: black;
+    text-decoration: none;
+  }
 
   div, img {
     margin: 0 20px 20px;
@@ -43,21 +78,17 @@
 
     }
   }
-}
 
-.book:link, .book:visited, .book:hover, .book:active {
-  color: black;
-  text-decoration: none;
-}
+  &:hover, &:active {
+    img {
 
-.book:hover, .book:active {
-  img {
+      /* source: https://codepen.io/sdthornton/pen/wBZdXq */
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 
-    /* source: https://codepen.io/sdthornton/pen/wBZdXq */
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    h2 {
+      text-decoration: underline;
+    }
   }
 
-  h2 {
-    text-decoration: underline;
-  }
 }

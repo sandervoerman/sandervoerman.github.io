@@ -3,14 +3,12 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+topic: 'Human health and agency in a networked age'
 ---
-
-![me](assets/img/rp01.png)
-
 I am a philosopher and developer working in the fields of ethics, health, and
 information technology.
 I work as a researcher within the
-[Redesigning Psychiatry](http://www.redesigningpsychiatry.org/) project,
+[Redesigning Psychiatry](http://www.redesigningpsychiatry.org/) programme,
 and as a consultant for responsible innovation.
 
 I have lectured at [University of Twente](http://utwente.nl),
