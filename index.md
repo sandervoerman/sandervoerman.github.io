@@ -3,8 +3,10 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-topic: 'Human health and agency in a networked age'
 ---
+
+![me](assets/img/me01.png){:#me}
+
 I am a philosopher and developer working in the fields of ethics, health, and
 information technology.
 I work as a researcher within the
@@ -14,5 +16,5 @@ and as a consultant for responsible innovation.
 I have lectured at [University of Twente](http://utwente.nl),
 [Eindhoven University of Technology](http://www.tue.nl/) and
 [Tilburg University](http://www.tilburguniversity.edu/),
-and I have published on a wide range of philosophical topics, most of which have something to do with the
-problem of understanding human agency.
+and I have published on a wide range of philosophical topics,
+most of which have something to do with the problem of understanding human agency.
