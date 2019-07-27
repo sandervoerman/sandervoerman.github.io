@@ -32,7 +32,7 @@ minima:
 
 # Build settings
 markdown: kramdown
-remote_theme: sandervoerman/minima-profile
+remote_theme: sandervoerman/profile
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
