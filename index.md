@@ -5,8 +5,6 @@
 layout: home
 ---
 
-![me](assets/img/me01.png){:#me}
-
 I am a philosopher and developer working in the fields of ethics, health, and
 information technology.
 I work as a researcher within the
