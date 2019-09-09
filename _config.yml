@@ -35,6 +35,7 @@ minima:
 header_pages:
  - books.md
  - articles.md
+ - projects.md
 
 # Build settings
 markdown: kramdown
