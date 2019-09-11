@@ -52,7 +52,7 @@ University of Twente
 : Introduction to Philosophy, BA-1 University College, 2016/2017.
 
 Eindhoven University of Technology
-: Design project supervisor, MA Human-Technology Interaction, 2012/2013.
+: Design project supervisor, MSc Human-Technology Interaction, 2012/2013.
 
 Tilburg University
 : Philosophy of Science, BA-2 Economics, 2012/2013.
