@@ -1,4 +1,4 @@
-# https://www.savoerman.nl
+# [www.savoerman.nl](https://www.savoerman.nl)
 
 This repository contains the source for my personal website on the
 [GitHub Pages](https://pages.github.com/) hosting platform.
