@@ -19,6 +19,7 @@ header_pages:
  - books.md
  - articles.md
  - projects.md
+ - vita.md
 
 # Build settings
 markdown: kramdown
