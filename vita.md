@@ -57,6 +57,4 @@ Eindhoven University of Technology
 Tilburg University
 : Philosophy of Science, BA-2 Economics, 2012/2013.
 : Philosophy of Science tutorials, BA-2 International Business Administration, 2012/2013.
-
-Tilburg University
 : Philosophy of Psychology tutorials, BA Psychology, 2000/2001.
