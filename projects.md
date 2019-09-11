@@ -4,11 +4,14 @@ title: Projects
 permalink: /projects/
 ---
 
-## Current projects
-
 ### [Redesigning Psychiatry](http://www.redesigningpsychiatry.org/)
 
-### [Channels](https://github.com/sandervoerman/channels)
+This program aims to change mental health care in the Netherlands at multiple
+levels, including everyday use of clinical language, the concepts and methods
+used for research and diagnosis, and the design of technologies and built
+environments.
 
 
-## Past projects
+### [Channels](https://pypi.org/project/sav.channels/)
+
+A small Python module providing iterator streams between coroutines.
