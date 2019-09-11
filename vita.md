@@ -33,6 +33,8 @@ Tilburg University
 : Lecturer, 2012–2013.
 : PhD researcher, 2006–2011.
 
+University of California, Riverside
+: Visiting scholar, 2007.
 
 ## Publications
 
