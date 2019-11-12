@@ -25,18 +25,39 @@ lightweight and pythonic. Version 0.4 is
 Version 1.0, which will have a slightly different API, is under development.
 
 
+
+## Past projects
+
 ### [Jesuis](https://github.com/sandervoerman/jesuis)
 
 A [Jekyll](https://jekyllrb.com/) theme for profile websites, written
 in [Sass](https://sass-lang.com/)
-and [Liquid](https://shopify.github.io/liquid/). It is used on this website.
+and [Liquid](https://shopify.github.io/liquid/) (2019). It is used on this website.
 
 
-## Past projects
+### HIC vision and concept for GGZ Drenthe
+
+A Redesigning Psychiatry project for High & Intensive Care (HIC) at GGZ Drenthe,
+the Netherlands (2018).
+
+
+### Vision for Landgoed Willibrordus
+
+A Redesigning Psychiatry project for
+[Landgoed Willibrordus](https://www.landgoedwillibrordus.nl/) at
+GGZ Noord-Holland-Noord, the Netherlands (2017-2018).
+
 
 ### [Medical Trust Beyond Clinical Walls](http://beyondclinicalwalls.nl/)
 
-The purpose of this project is to investigate how patients with chronic diseases establish trust in forms of treatment and monitoring that involve telecare, the use of technology at home in interaction with online systems. Furthermore, the project aims to evaluate when this trust is well-grounded, and to develop guidelines for the responsible deployment and further innovation of telecare services with an eye on promoting reasonable patient trust, autonomy, and self-management.
+The purpose of this project is to investigate how patients with chronic diseases
+establish trust in forms of treatment and monitoring that involve telecare, the
+use of technology at home in interaction with online systems. Furthermore, the
+project aims to evaluate when this trust is well-grounded, and to develop
+guidelines for the responsible deployment and further innovation of telecare
+services with an eye on promoting reasonable patient trust, autonomy, and
+self-management (2013-2014).
+
 
 ### [Vrijewil.info](http://vrijewil.info)
 
