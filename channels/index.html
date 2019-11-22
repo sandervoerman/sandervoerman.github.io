@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Channels 0.5 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-sav.channels">
+<span id="sav-channels"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">sav.channels</span></code><a class="headerlink" href="#module-sav.channels" title="Permalink to this headline">¶</a></h1>
+<p>Channels between coroutines.</p>
+<p>A simple <a class="reference external" href="https://www.python.org/">Python</a> implementation of the <a class="reference external" href="https://en.wikipedia.org/wiki/Channel_(programming)">channel</a> synchronization
+construct for <a class="reference external" href="https://www.python.org/dev/peps/pep-0492/">async/await</a> applications.</p>
+<p>Channels are used for synchronization in the <a class="reference external" href="http://www.usingcsp.com/">CSP</a> concurrency model.
+They are natively supported by languages that implement this model, such
+as <a class="reference external" href="http://www.wotug.org/occam/">occam</a> and <a class="reference external" href="https://tour.golang.org/concurrency/2">Go</a>. Python has <a class="reference external" href="https://www.python.org/dev/peps/pep-0525/">asynchronous generators</a>, which are
+similar to channels except that they require yielding instead of calling
+from one of the two endpoints. While this makes no difference in many
+cases, some problems are easier to solve if a data stream can be
+accessed from both ends by calling instead of yielding.</p>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">sav.channels</span></code> module implements channels as pairs of
+asynchronous generators. When an object is sent into one generator, it
+will be yielded by the other generator, and vice-versa.</p>
+<div class="toctree-wrapper compound">
+<span id="document-installation"></span><div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>This module requires Python 3.8 or higher. Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install it
+from the command line:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install sav.channels
+</pre></div>
+</div>
+<p>Or visit the online project pages on <a class="reference external" href="https://github.com/sandervoerman/channels">GitHub</a> and <a class="reference external" href="https://pypi.org/project/sav.channels/">PyPI</a>.</p>
+</div>
+<span id="document-overview"></span><div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>To use the module, import <code class="xref py py-mod docutils literal notranslate"><span class="pre">channels</span></code> from the <code class="xref py py-mod docutils literal notranslate"><span class="pre">sav</span></code> namespace
+into an <a class="reference external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> application. The module contains two functions,
+<a class="reference internal" href="#sav.channels.create" title="sav.channels.create"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.create()</span></code></a> and <a class="reference internal" href="#sav.channels.open" title="sav.channels.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.open()</span></code></a>. The following example
+demonstrates how they are used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">sav</span> <span class="k">import</span> <span class="n">channels</span>
+
+<span class="n">a_receiver</span><span class="p">,</span> <span class="n">a_sender</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+<span class="n">b_receiver</span><span class="p">,</span> <span class="n">b_sender</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">send_messages</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Send messages into multiple channels.&quot;&quot;&quot;</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">channels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">a_sender</span><span class="p">),</span> <span class="n">channels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">b_sender</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">a_sender</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="s1">&#39;Hello Arnold.&#39;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">b_sender</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="s1">&#39;Hello Bernard.&#39;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">a_sender</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="s1">&#39;Goodbye Arnold.&#39;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">b_sender</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="s1">&#39;Goodbye Bernard.&#39;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">show_messages</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">receiver</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Show messages from a single channel.&quot;&quot;&quot;</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">receiver</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Message for </span><span class="si">{name}</span><span class="s1">: </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Run both channels concurrently.&quot;&quot;&quot;</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">send_messages</span><span class="p">(),</span>
+                         <span class="n">show_messages</span><span class="p">(</span><span class="s1">&#39;Arnold&#39;</span><span class="p">,</span> <span class="n">a_receiver</span><span class="p">),</span>
+                         <span class="n">show_messages</span><span class="p">(</span><span class="s1">&#39;Bernard&#39;</span><span class="p">,</span> <span class="n">b_receiver</span><span class="p">))</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Channels are created by calling <a class="reference internal" href="#sav.channels.create" title="sav.channels.create"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.create()</span></code></a>:</p>
+<blockquote>
+<div><dl class="function">
+<dt id="sav.channels.create">
+<code class="sig-prename descclassname">sav.channels.</code><code class="sig-name descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Tuple[AsyncGenerator, AsyncGenerator]<a class="headerlink" href="#sav.channels.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A pair of asynchronous generators. When an object is sent
+into one of the generators, it is yielded by the other,
+and vice-versa.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>In the example, the first generator of each channel is simply iterated
+over with an <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> loop. The second generator may be started and
+closed using <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> and <a class="reference internal" href="#sav.channels.open" title="sav.channels.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.open()</span></code></a>:</p>
+<blockquote>
+<div><dl class="function">
+<dt id="sav.channels.open">
+<code class="sig-prename descclassname">sav.channels.</code><code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param">ag: _AG</em>, <em class="sig-param">*</em>, <em class="sig-param">start: bool = True</em>, <em class="sig-param">clear: bool = True</em>, <em class="sig-param">close: bool = True</em><span class="sig-paren">)</span> &#x2192; AsyncGenerator[_AG, None]<a class="headerlink" href="#sav.channels.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a context manager to start and close a generator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ag</strong> – The async generator.</p></li>
+<li><p><strong>start</strong> – Whether the generator should be started.</p></li>
+<li><p><strong>clear</strong> – Whether StopAsyncIteration should be cleared.</p></li>
+<li><p><strong>close</strong> – Whether the generator should be closed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The async context manager.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement waits until the <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> loops at the
+other ends of both channels are started, after which each second
+endpoint is ready to send.</p>
+<p>When control flows out of the <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> block, the context
+managers close the generators and schedules their counterparts at the
+<code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> ends of the channels to  raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopAsyncIteration" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopAsyncIteration</span></code></a>.</p>
+</div>
+<span id="document-bidir"></span><div class="section" id="bidirectional-channels">
+<h2>Bidirectional channels<a class="headerlink" href="#bidirectional-channels" title="Permalink to this headline">¶</a></h2>
+<p>The following example shows how to use a channel bidirectionally:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">AsyncGenerator</span>
+<span class="kn">from</span> <span class="nn">sav</span> <span class="k">import</span> <span class="n">channels</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">channels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="k">await</span> <span class="n">c</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="k">await</span> <span class="n">c</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">letters</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">channels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="k">await</span> <span class="n">c</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="k">await</span> <span class="n">c</span><span class="o">.</span><span class="n">asend</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">))</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">c_left</span><span class="p">,</span> <span class="n">c_right</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">numbers</span><span class="p">(</span><span class="n">c_left</span><span class="p">),</span> <span class="n">letters</span><span class="p">(</span><span class="n">c_right</span><span class="p">))</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>In this case, <a class="reference internal" href="index.html#sav.channels.open" title="sav.channels.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.open()</span></code></a> is used to set up <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code>
+blocks at both ends of the channel.</p>
+<p>The first endpoint always starts receiving. Therefore, it is opened
+with <code class="docutils literal notranslate"><span class="pre">start=False</span></code>, and must be started manually by sending <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref any docutils literal notranslate"><span class="pre">None</span></code></a>
+in order to await the first value from the second end.</p>
+<p>The second endpoint waits until the first endpoint has been started.</p>
+<p>From that point onwards, the channel operates symmetrically: when one
+generator is suspended, the other one is waiting, and when a value is
+sent into the suspended generator, the waiting generator is scheduled
+to yield that value.</p>
+<p>When one of the two generators is closed, the other generator will be
+scheduled to raise <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopAsyncIteration" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopAsyncIteration</span></code></a>. Although there is no
+<code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> loop in this case, <a class="reference internal" href="index.html#sav.channels.open" title="sav.channels.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.open()</span></code></a> will clear the
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#StopAsyncIteration" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopAsyncIteration</span></code></a> exception when it reaches the end of the
+<code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> block. In this way, the bidirectional usage elegantly
+resembles the unidirectional usage: when one of the two <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code>
+blocks is exited, the other one will be exited as well.</p>
+</div>
+<span id="document-pipeline"></span><div class="section" id="channels-and-generator-pipelines">
+<h2>Channels and generator pipelines<a class="headerlink" href="#channels-and-generator-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>One powerful application of generators is that they may be used to
+build generator pipelines. The following example shows how a channel
+may be used to send values into such a pipeline from the upstream end.
+In this case, the channel functions like a generator adapter, reversing
+the directions in which data is being <em>sent</em> and <em>yielded</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">AsyncIterator</span>
+<span class="kn">from</span> <span class="nn">sav</span> <span class="k">import</span> <span class="n">channels</span>
+
+<span class="n">receiver</span><span class="p">,</span> <span class="n">sender</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">produce</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">channels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">sender</span><span class="p">):</span>
+        <span class="n">send_item</span> <span class="o">=</span> <span class="n">sender</span><span class="o">.</span><span class="n">asend</span>
+        <span class="k">await</span> <span class="n">send_item</span><span class="p">(</span><span class="s2">&quot;Item 1&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">send_item</span><span class="p">(</span><span class="s2">&quot;Item 2&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">send_item</span><span class="p">(</span><span class="s2">&quot;Item 3&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">send_item</span><span class="p">(</span><span class="s2">&quot;Item 4&quot;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">transform</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">AsyncIterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">receiver</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Combining:&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">s</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">consume</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">transform</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">produce</span><span class="p">(),</span> <span class="n">consume</span><span class="p">())</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Sander Voerman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
