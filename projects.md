@@ -14,31 +14,42 @@ used for research and diagnosis, and the design of technologies and built
 environments.
 
 
-### [Channels](https://github.com/sandervoerman/channels)
-
-A small [Python](https://www.python.org/) package providing iterator streams
-between coroutines with async/await syntax. The paradigm resembles channels in
-[Go](https://tour.golang.org/concurrency/2) and [CSP](http://www.usingcsp.com/),
-but the implementation uses generators and asyncio to keep everything
-lightweight and pythonic. Version 0.4 is
-[available on PyPI](https://pypi.org/project/sav.channels/).
-Version 1.0, which will have a slightly different API, is under development.
-
-
-
 ## Past projects
 
-### [Jesuis](https://github.com/sandervoerman/jesuis)
+### [Channels between coroutines](/channels/)
 
-A [Jekyll](https://jekyllrb.com/) theme for profile websites, written
-in [Sass](https://sass-lang.com/)
-and [Liquid](https://shopify.github.io/liquid/) (2019). It is used on this website.
+A simple [Python] implementation of the [channel] synchronization
+construct for [async/await] applications (2019).
+
+[Python]: https://www.python.org/
+[channel]: https://en.wikipedia.org/wiki/Channel_(programming)
+[async/await]: https://www.python.org/dev/peps/pep-0492/
+
+
+### [Solarized skins for Minima](https://github.com/jekyll/minima/pull/404)
+
+Creation of two skins for the next release of Minima, the default theme
+of the [Jekyll] static site generator.
+The skins are based on the [Solarized] color scheme,
+one in light and the other in dark mode (2019).
+
+[Solarized]: https://github.com/altercation/solarized
+
+
+### [Jesuis theme for Jekyll](https://github.com/sandervoerman/jesuis)
+
+A [Jekyll] theme for profile websites, written [Sass] and [Liquid].
+It is used on this website (2019).
+
+[Jekyll]: https://jekyllrb.com/
+[Sass]: https://sass-lang.com/
+[Liquid]: https://shopify.github.io/liquid/
 
 
 ### HIC vision and concept for GGZ Drenthe
 
-A Redesigning Psychiatry project for High & Intensive Care (HIC) at GGZ Drenthe,
-the Netherlands (2018).
+A Redesigning Psychiatry project for High & Intensive Care (HIC) at
+GGZ Drenthe, the Netherlands (2018).
 
 
 ### Vision for Landgoed Willibrordus
