@@ -1,22 +1,25 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Channels 0.5 documentation</title>
-    <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
-    <script type="text/javascript" src="static/jquery.js"></script>
-    <script type="text/javascript" src="static/underscore.js"></script>
-    <script type="text/javascript" src="static/doctools.js"></script>
-    <script type="text/javascript" src="static/language_data.js"></script>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
-  <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+  
+    <link rel="canonical" href="/channels/index.html"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -61,7 +64,7 @@ into an <a class="reference external" href="https://docs.python.org/3/library/as
 <a class="reference internal" href="#sav.channels.create" title="sav.channels.create"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.create()</span></code></a> and <a class="reference internal" href="#sav.channels.open" title="sav.channels.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.open()</span></code></a>. The following example
 demonstrates how they are used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">sav</span> <span class="k">import</span> <span class="n">channels</span>
+<span class="kn">from</span> <span class="nn">sav</span> <span class="kn">import</span> <span class="n">channels</span>
 
 <span class="n">a_receiver</span><span class="p">,</span> <span class="n">a_sender</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 <span class="n">b_receiver</span><span class="p">,</span> <span class="n">b_sender</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
@@ -79,7 +82,7 @@ demonstrates how they are used:</p>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">show_messages</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">receiver</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Show messages from a single channel.&quot;&quot;&quot;</span>
     <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">receiver</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Message for </span><span class="si">{name}</span><span class="s1">: </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Message for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -94,9 +97,9 @@ demonstrates how they are used:</p>
 </div>
 <p>Channels are created by calling <a class="reference internal" href="#sav.channels.create" title="sav.channels.create"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.create()</span></code></a>:</p>
 <blockquote>
-<div><dl class="function">
+<div><dl class="py function">
 <dt id="sav.channels.create">
-<code class="sig-prename descclassname">sav.channels.</code><code class="sig-name descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Tuple[AsyncGenerator, AsyncGenerator]<a class="headerlink" href="#sav.channels.create" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">sav.channels.</code><code class="sig-name descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>AsyncGenerator<span class="p">, </span>AsyncGenerator<span class="p">]</span><a class="headerlink" href="#sav.channels.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new channel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -112,9 +115,9 @@ and vice-versa.</p>
 over with an <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code> loop. The second generator may be started and
 closed using <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> and <a class="reference internal" href="#sav.channels.open" title="sav.channels.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">channels.open()</span></code></a>:</p>
 <blockquote>
-<div><dl class="function">
+<div><dl class="py function">
 <dt id="sav.channels.open">
-<code class="sig-prename descclassname">sav.channels.</code><code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param">ag: _AG</em>, <em class="sig-param">*</em>, <em class="sig-param">start: bool = True</em>, <em class="sig-param">clear: bool = True</em>, <em class="sig-param">close: bool = True</em><span class="sig-paren">)</span> &#x2192; AsyncGenerator[_AG, None]<a class="headerlink" href="#sav.channels.open" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">sav.channels.</code><code class="sig-name descname">open</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ag</span><span class="p">:</span> <span class="n">_AG</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">start</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">clear</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">close</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; AsyncGenerator[_AG, None]<a class="headerlink" href="#sav.channels.open" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use a context manager to start and close a generator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -144,8 +147,8 @@ managers close the generators and schedules their counterparts at the
 <p>The following example shows how to use a channel bidirectionally:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">AsyncGenerator</span>
-<span class="kn">from</span> <span class="nn">sav</span> <span class="k">import</span> <span class="n">channels</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">AsyncGenerator</span>
+<span class="kn">from</span> <span class="nn">sav</span> <span class="kn">import</span> <span class="n">channels</span>
 
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -195,8 +198,8 @@ may be used to send values into such a pipeline from the upstream end.
 In this case, the channel functions like a generator adapter, reversing
 the directions in which data is being <em>sent</em> and <em>yielded</em>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">AsyncIterator</span>
-<span class="kn">from</span> <span class="nn">sav</span> <span class="k">import</span> <span class="n">channels</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">AsyncIterator</span>
+<span class="kn">from</span> <span class="nn">sav</span> <span class="kn">import</span> <span class="n">channels</span>
 
 <span class="n">receiver</span><span class="p">,</span> <span class="n">sender</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 
@@ -249,7 +252,7 @@ the directions in which data is being <em>sent</em> and <em>yielded</em>.</p>
       &copy;2019, Sander Voerman.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>
