@@ -6,6 +6,10 @@ description: Personal page of Sander Voerman
 show_excerpts: false
 url: "https://www.savoerman.nl"
 
+# Theme settings
+jesuis:
+  profile_picture: "profile.jpg"
+
 # Minima 3.x
 minima:
   date_format: "%b %-d, %Y"
