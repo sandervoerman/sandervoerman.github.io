@@ -6,7 +6,12 @@ permalink: /projects/
 
 ## Active projects
 
-### [Redesigning Psychiatry](http://www.redesigningpsychiatry.org/) ([dutch](http://www.redesigningpsychiatry.org/), [english](https://www.reframingstudio.com/projects/reframing-mental-health))
+### [Patterns of Life](https://www.patternsoflife.nl/en/)
+
+The Patterns of Life project aims to study and develop new forms of diagnostic and prognostic cocreation between clients and professionals in the field of mental health care.
+
+
+### [Redesigning Psychiatry](https://www.redesigningpsychiatry.org/)
 
 This research through design programme aims to change mental health care in the Netherlands at multiple
 levels, including everyday use of clinical language, the concepts and methods
