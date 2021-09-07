@@ -9,7 +9,7 @@ articles:
     about: >-
       With Philip Nickel.
       <em>Journal of Medicine and Philosophy, 42,</em> 1, 33-49, 2017.
-    link: https://doi.org/10.1093/jmp/jhw035
+    pdf: stet.pdf
   -
     title:
       en: 'Review of <em>Norms and Practices</em>, by James D. Wallace'
