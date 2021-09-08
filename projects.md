@@ -19,6 +19,11 @@ used for research and diagnosis, and the design of technologies and built
 environments.
 
 
+### [Deep Memory](http://deepmemory.nl/)
+
+I am working on research ethics and philosophy of mental health care within the DeepMemory project, which uses deepfake technology to investigate new ways of helping people visualize their future selves.
+
+
 ## Past projects
 
 ### [Channels between coroutines](/channels/)
