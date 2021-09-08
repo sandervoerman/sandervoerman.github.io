@@ -14,7 +14,7 @@ Tilburg University
 
 ## Experience
 
-Reframing Studio
+Redesigning Psychiatry
 : Researcher and core team member for the Redesigning Psychiatry programme,
 2015–present.
 
