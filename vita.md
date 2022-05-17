@@ -14,9 +14,12 @@ Tilburg University
 
 ## Experience
 
+Parnassia Groep
+: Senior researcher, 2022-present.
+
 Redesigning Psychiatry
-: Researcher and core team member for the Redesigning Psychiatry programme,
-2015–present.
+: Board member, 2021-present.
+: Core team member, 2015–present.
 
 University of Twente
 : Lecturer, 2017–2018.
