@@ -31,10 +31,10 @@ I am working on research ethics and philosophy of mental health care within the 
 I have created a number of skins for [Minima], the default theme of the [Jekyll]
 static site generator:
 
-- [Adaptive skin `auto`](https://github.com/jekyll/minima/pull/634), based on
-  the default `classic` and `dark` skins (2022).
-- [Adaptive skin `solarized`](https://github.com/jekyll/minima/pull/594), based
-  on the `solarized-light` and `solarized-dark` skins (2021).
+- [Adaptive default skin](https://github.com/jekyll/minima/pull/634), based on
+  the default classic and dark skins (2022).
+- [Adaptive Solarized skin](https://github.com/jekyll/minima/pull/594), based
+  on the [Solarized] color scheme (2021).
 - [Light and dark Solarized skins](https://github.com/jekyll/minima/pull/404),
   based on the [Solarized] color scheme (2019).
 
