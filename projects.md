@@ -26,6 +26,22 @@ I am working on research ethics and philosophy of mental health care within the 
 
 ## Past projects
 
+### Adaptive and Solarized skins for Minima
+
+I have created a number of skins for [Minima], the default theme of the [Jekyll]
+static site generator:
+
+- [Adaptive skin `auto`](https://github.com/jekyll/minima/pull/634), based on
+  the default `classic` and `dark` skins (2022).
+- [Adaptive skin `solarized`](https://github.com/jekyll/minima/pull/594), based
+  on the `solarized-light` and `solarized-dark` skins (2021).
+- [Light and dark Solarized skins](https://github.com/jekyll/minima/pull/404),
+  based on the [Solarized] color scheme (2019).
+
+[Minima]: https://github.com/jekyll/minima
+[Solarized]: https://github.com/altercation/solarized
+
+
 ### [Channels between coroutines](/channels/)
 
 A simple [Python] implementation of the [channel] synchronization
@@ -34,16 +50,6 @@ construct for [async/await] applications (2019).
 [Python]: https://www.python.org/
 [channel]: https://en.wikipedia.org/wiki/Channel_(programming)
 [async/await]: https://www.python.org/dev/peps/pep-0492/
-
-
-### [Solarized skins for Minima](https://github.com/jekyll/minima/pull/404)
-
-Creation of two skins for the next release of Minima, the default theme
-of the [Jekyll] static site generator.
-The skins are based on the [Solarized] color scheme,
-one in light and the other in dark mode (2019).
-
-[Solarized]: https://github.com/altercation/solarized
 
 
 ### [Jesuis theme for Jekyll](https://github.com/sandervoerman/jesuis)
