@@ -28,8 +28,8 @@ I am working on research ethics and philosophy of mental health care within the 
 
 ### Adaptive and Solarized skins for Minima
 
-I have created a number of skins for [Minima], the default theme of the [Jekyll]
-static site generator:
+I have created a number of skins that are part of [Minima] 3.0, the next version
+of the default theme of the [Jekyll] static site generator:
 
 - [Adaptive default skin](https://github.com/jekyll/minima/pull/634), based on
   the default classic and dark skins (2022).
