@@ -1,6 +1,6 @@
 title: Sander Voerman
 author:
-  email: sander@redesigningpsychiatry.org
+  email: s.voerman@parnassiagroep.nl
 
 description: Personal page of Sander Voerman
 show_excerpts: false
@@ -17,9 +17,6 @@ minima:
   social_links:
     github: sandervoerman
     linkedin: savoerman
-    gitlab:
-    - username: sandervoerman
-      instance: gitlab.com
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
