@@ -17,6 +17,9 @@ Tilburg University
 Parnassia Groep
 : Senior researcher, 2022-present.
 
+VU University Amsterdam
+: Guest researcher, 2022-present.
+
 Redesigning Psychiatry
 : Board member, 2021-present.
 : Core team member, 2015–present.
