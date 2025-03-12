@@ -5,6 +5,16 @@ permalink: /articles/
 articles:
   -
     title:
+      en: 'Problem-sustaining patterns: redesigning the concept of mental disorder'
+    about: >-
+      With Derek W. Strijbos, Anton B.P. Staring,
+      Femke de Boer, Matthijs van Dijk, Jim Driessen,
+      Gerrit Glas, Rutger Goekoop, Annemarie Mulder,
+      Nynke Tromp, Marloes Verhaar and David van den Berg.
+      <em>Frontiers in Psychiatry, 16,</em> 2025.
+    link: https://doi.org/10.3389/fpsyt.2025.1382915
+  -
+    title:
       en: 'Sound Trust and the Ethics of Telecare'
     about: >-
       With Philip Nickel.
