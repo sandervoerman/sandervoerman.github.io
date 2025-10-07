@@ -18,11 +18,11 @@ Parnassia Groep
 : Senior researcher, 2022-present.
 
 VU University Amsterdam
-: Guest researcher, 2022-present.
+: Visiting fellow, 2022-present.
 
 Redesigning Psychiatry
-: Board member, 2021-present.
 : Core team member, 2015–present.
+: Board member, 2021-2025.
 
 University of Twente
 : Lecturer, 2017–2018.
