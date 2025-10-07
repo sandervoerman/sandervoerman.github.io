@@ -6,7 +6,8 @@ I am a philosopher and developer working in the fields of mental health, ethics,
 and information technology. I work at
 [Parnassia Groep](https://www.parnassiagroep.nl/) within the
 [MRC Research Center](https://mrcresearch.nl/person/sander-voerman/).
-I am affiliated with [VU University](https://www.vu.nl/) and a member of the
+I am a visiting fellow at
+[VU University](https://research.vu.nl/en/persons/sander-voerman) and a team member of the
 [Redesigning Psychiatry](http://www.redesigningpsychiatry.org/) programme.
 
 I have lectured at [University of Twente](https://www.utwente.nl/),
