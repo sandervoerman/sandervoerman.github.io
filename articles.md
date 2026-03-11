@@ -5,6 +5,14 @@ permalink: /articles/
 articles:
   -
     title:
+      en: 'Embracing Complexity in Clinical Practice: Operationalizing a Systems-Based Perspective in Mental-Health Diagnostics'
+    about: >-
+      Jim Driessen, Rutger Goekoop, Sander A. Voerman, Annemarie Mulder,
+      Marloes Verhaar, Jan Hendrik Bos, Gerrit Glas and David van den Berg.
+      <em>Clinical Psychological Science,</em> 2026.
+    link: https://doi.org/10.1177/21677026251414040
+  -
+    title:
       en: 'Problem-sustaining patterns: redesigning the concept of mental disorder'
     about: >-
       With Derek W. Strijbos, Anton B.P. Staring,
