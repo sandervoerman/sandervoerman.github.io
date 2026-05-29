@@ -42,5 +42,5 @@ books:
       With Tjeerd van de Laar.
       Rotterdam: Lemniscaat, 2011.
     image: vwcover.png
-    link: https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/
+    link: https://www.bol.com/nl/nl/p/vrije-wil/1001004010296261/
 ---

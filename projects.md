@@ -86,9 +86,9 @@ services with an eye on promoting reasonable patient trust, autonomy, and
 self-management (2013-2014).
 
 
-### [Vrijewil.info](http://vrijewil.info)
+### Vrijewil.info
 
-A companion website for high school teachers and students during 2011-2015,
-when our textbook,
-[*Vrije wil*](https://www.lemniscaat.nl/boeken/vrije-wil-discussies-over-verantwoordelijkheid-zelfverwerkelijking-en-bewustzijn/),
+This was a companion website for high school teachers and students during
+2011-2015, when our textbook,
+[*Vrije wil*](https://www.bol.com/nl/nl/p/vrije-wil/1001004010296261/),
 was used for the Philosophy central exam in Dutch high schools.
